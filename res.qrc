@@ -1,0 +1,30 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resource/wanye.jpg</file>
+        <file>Resource/ganyu.png</file>
+        <file>Resource/babala.png</file>
+        <file>Resource/dadaliya.png</file>
+        <file>Resource/hutao.png</file>
+        <file>Resource/keqing.png</file>
+        <file>Resource/xiao.png</file>
+        <file>Resource/zhongli.png</file>
+        <file>Resource/hutao2.jpg</file>
+        <file>Resource/keqing2.jpg</file>
+        <file>Resource/ningguang2.jpg</file>
+        <file>Resource/xiao2.jpg</file>
+        <file>Resource/youla.png</file>
+        <file>Resource/babala2.jpg</file>
+        <file>Resource/guoba.png</file>
+        <file>Resource/dadaliya2.jpg</file>
+        <file>Resource/ganyu2.jpg</file>
+        <file>Resource/youla2.jpg</file>
+        <file>Resource/zaoyou2.jpg</file>
+        <file>Resource/zhongli2.jpg</file>
+        <file>Resource/youla3.jpeg</file>
+        <file>Resource/ningguang.png</file>
+        <file>Resource/zaoyou.png</file>
+        <file>Resource/daoqi.png</file>
+        <file>Resource/liyue.png</file>
+        <file>Resource/mengde.png</file>
+    </qresource>
+</RCC>
