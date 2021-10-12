@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "character_show_widget.h"
 #include "operations.h"
+#include "show_widget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

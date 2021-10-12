@@ -4,6 +4,8 @@
 #include <string>
 #include <QVector>
 #include <algorithm>
+#include <QMap>
+#include "show_widget.h"
 #include "life.h"
 #include "Tools.h"
 
@@ -18,16 +20,18 @@ public:
     void deleteone(int idx);//删除角色
     bool deleteone(string nameinpinyin);//删除角色-拼音
     bool deleteone(QString nameinhanzi);//删除角色-汉字
-    void base_sort(int idx);//排序
     void sortByStar();
     void sortBySex();
     void sortByCountry();
     void sortByProfession();
     void push_back(Character_single* a);
+    void disply(QVector<show_widget*>);
     int  size();
     Character_single*& operator[](int idx);
 private:
     QVector<Character_single*> characters;
+
+    void base_sort(int idx);//排序
 };
 
 
@@ -76,53 +80,64 @@ bool Characters::deleteone(string nameinpinyin) {//调用析构函数
 void Characters::base_sort(int idx) {
     //1.按星级排序  2.按性别排序  3.按国籍排序  4.按职业排序
     int size = characters.size();
-
     switch(idx){
         case 1:
-            for(int i=0;i<size-1;i++){
-                for(int j=0;j<size-1-i;j++){
-                    if(characters[i]->get_star()<characters[j]->get_star())
-                        swap(characters[i],characters[j]);
-                    else if(characters[i]->get_star()==characters[j]->get_star())
-                        if(characters[i]->get_name()>characters[j]->get_name())
-                            swap(characters[i],characters[j]);
+            for(int i=0;i<size;i++){
+                for(int j=1;j<size-i;j++){
+                    if(characters[j]->get_star()>characters[j-1]->get_star())
+                        swap(characters[j],characters[j-1]);
+                    else if(characters[j]->get_star()==characters[j-1]->get_star())
+                        if(characters[j]->get_name()>characters[j-1]->get_name())
+                            swap(characters[j],characters[j-1]);
                 }
+            }
+            for(int i=0;i<size;i++){
+                qDebug()<<characters[i]->get_star()<<" ";
             }
         break;
 
         case 2:
-            for(int i=0;i<size-1;i++){
-                for(int j=0;j<size-1-i;j++){
-                    if(characters[i]->get_sex()<characters[j]->get_sex())
-                        swap(characters[i],characters[j]);
-                    else if(characters[i]->get_sex()==characters[j]->get_sex())
-                        if(characters[i]->get_name()>characters[j]->get_name())
-                            swap(characters[i],characters[j]);
+            for(int i=0;i<size;i++){
+                for(int j=1;j<size-i;j++){
+                    if(characters[j]->get_sex()<characters[j-1]->get_sex())
+                        swap(characters[j],characters[j-1]);
+                    else if(characters[j]->get_sex()==characters[j-1]->get_sex())
+                        if(characters[j]->get_name()>characters[j-1]->get_name())
+                            swap(characters[j],characters[j-1]);
                 }
+            }
+            for(int i=0;i<size;i++){
+                qDebug()<<characters[i]->get_sex()<<" ";
             }
         break;
 
         case 3:
-            for(int i=0;i<size-1;i++){
-                for(int j=0;j<size-1-i;j++){
-                    if(characters[i]->get_country()<characters[j]->get_country())
-                        swap(characters[i],characters[j]);
-                    else if(characters[i]->get_country()==characters[j]->get_country())
-                        if(characters[i]->get_name()>characters[j]->get_name())
-                            swap(characters[i],characters[j]);
+        for(int i=0;i<size;i++){
+            for(int j=1;j<size-i;j++){
+                    if(characters[j]->get_country()<characters[j-1]->get_country())
+                        swap(characters[j],characters[j-1]);
+                    else if(characters[j]->get_country()==characters[j-1]->get_country())
+                        if(characters[j]->get_name()>characters[j-1]->get_name())
+                            swap(characters[j],characters[j-1]);
                 }
+            }
+            for(int i=0;i<size;i++){
+                qDebug()<<characters[i]->get_country()<<" ";
             }
         break;
 
         case 4:
-            for(int i=0;i<size-1;i++){
-                for(int j=0;j<size-1-i;j++){
-                    if(characters[i]->get_profession()<characters[j]->get_profession())
-                        swap(characters[i],characters[j]);
-                    else if(characters[i]->get_profession()==characters[j]->get_profession())
-                        if(characters[i]->get_name()>characters[j]->get_name())
-                            swap(characters[i],characters[j]);
+        for(int i=0;i<size;i++){
+            for(int j=1;j<size-i;j++){
+                    if(characters[j]->get_profession()<characters[j-1]->get_profession())
+                        swap(characters[j],characters[j-1]);
+                    else if(characters[j]->get_profession()==characters[j-1]->get_profession())
+                        if(characters[j]->get_name()>characters[j-1]->get_name())
+                            swap(characters[j],characters[j-1]);
                 }
+            }
+            for(int i=0;i<size;i++){
+                qDebug()<<characters[i]->get_profession()<<" ";
             }
         break;
 
@@ -147,6 +162,14 @@ void Characters::sortByProfession(){
 
 void Characters::push_back(Character_single* a){
     characters.push_back(a);
+}
+
+void Characters::disply(QVector<show_widget*> vec){
+    for(int i=0;i<characters.size();i++){
+        string s = ":/Resource/" + characters[i]->get_name_pinyin() + "2.jpg";
+        vec[i]->setPixmap(s);
+        vec[i]->show();
+    }
 }
 
 int Characters::size(){

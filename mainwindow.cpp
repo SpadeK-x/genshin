@@ -9,6 +9,7 @@
 #include <vector>
 #include <QMessageBox>
 #include <sstream>
+#include <QMovie>
 #include "shixian.h"
 #include "Tools.h"
 #include "life.h"
@@ -20,6 +21,10 @@ Characters my_characters;
 QVector<show_widget*> vec_show;
 QVector<show_widget*> vec_myshow;
 bool allIsImport = false, mineIsImport = false;
+QVector<QString> stars = {"五星","四星"};
+QVector<QString> sexes = {"男","女"};
+QVector<QString> countries = {"蒙德","璃月","稻妻"};
+QVector<QString> professions = {"单手剑","双手剑","长柄武器","弓箭","法器"};
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -49,16 +54,14 @@ MainWindow::MainWindow(QWidget *parent)
     for(auto item:vec_show) item->hide();
     for(auto item:vec_myshow) item->hide();
 
-    for(int i=0;i<all_characters.size();i++){
-        string s = ":/Resource/" + all_characters[i]->get_name_pinyin() + "2.jpg";
-        vec_show[i]->setPixmap(s);
-        vec_show[i]->show();
-    }
-
-
 //-------------------窗口设置-----------------
     setWindowIcon(QIcon(":/Resource/guoba.png"));
     setWindowTitle("应急食品");
+
+
+    QMovie* movie =new QMovie(":/Resource/mianyi.gif");
+    movie->start();
+    ui->disply->setMovie(movie);
 
     connect(ui->import_mine,&QAction::triggered,this,&MainWindow::importMine);
     connect(ui->actionadd,&QAction::triggered,[=](){
@@ -109,6 +112,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     });
 
+//    connect(ui->actionabout,&QMenuBar::triggered,[=](){
+
+//    });
+
 //-------------stack_widget 换页-------------------
 
     ui->Main_Widget->setCurrentIndex(0);
@@ -140,7 +147,7 @@ MainWindow::MainWindow(QWidget *parent)
             //监听人物界面的返回信号
             connect(character_Scene,&Character_Show_Widget::characterSceneBack,[&](){
                 this->show();
-                character_Scene->hide();
+                character_Scene->~Character_Show_Widget();
             });
     });
 });
@@ -151,7 +158,40 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->all_characters,&QPushButton::clicked,[=](){
         ui->Main_Widget->setCurrentIndex(1);
+        if(ui->comboBox->currentIndex()==0) {
+            all_characters.sortByStar();
+            QString path = "排列顺序：";
+            for(auto it:stars) path+=it+" ";
+            ui->path_all->setText(path);
+            QFont font("Microsoft YaHei", 20, 75);
+            ui->path_all->setFont(font);
+        }
+        else if(ui->comboBox->currentIndex()==1) {
+            all_characters.sortBySex();
+            QString path = "排列顺序：";
+            for(auto it:sexes) path+=it+" ";
+            ui->path_all->setText(path);
+            QFont font("Microsoft YaHei", 20, 75);
+            ui->path_all->setFont(font);
+        }
+        else if(ui->comboBox->currentIndex()==2) {
+            all_characters.sortByCountry();
+            QString path = "排列顺序：";
+            for(auto it:countries) path+=it+" ";
+            ui->path_all->setText(path);
+            QFont font("Microsoft YaHei", 20, 75);
+            ui->path_all->setFont(font);
+        }
+        else if(ui->comboBox->currentIndex()==3) {
+            all_characters.sortByProfession();
+            QString path = "排列顺序：";
+            for(auto it:professions) path+=it+" ";
+            ui->path_all->setText(path);
+            QFont font("Microsoft YaHei", 20, 75);
+            ui->path_all->setFont(font);
+        }
 
+        all_characters.disply(vec_show);
     });
 
     connect(ui->character_query,&QPushButton::clicked,[=](){
@@ -169,11 +209,40 @@ MainWindow::MainWindow(QWidget *parent)
         //-----------场景切换-------------
         qDebug()<<my_characters.size();
 
-        for(int i=0;i<my_characters.size();i++){
-            string s = ":/Resource/" + my_characters[i]->get_name_pinyin() + "2.jpg";
-            vec_myshow[i]->setPixmap(s);
-            vec_myshow[i]->show();
+        if(ui->comboBox_my->currentIndex()==0) {
+            my_characters.sortByStar();
+            QString path = "排列顺序：";
+            for(auto it:stars) path+=it+" ";
+            ui->path_my->setText(path);
+            QFont font("Microsoft YaHei", 20, 75);
+            ui->path_my->setFont(font);
         }
+        else if(ui->comboBox_my->currentIndex()==1) {
+            my_characters.sortBySex();
+            QString path = "排列顺序：";
+            for(auto it:sexes) path+=it+" ";
+            ui->path_my->setText(path);
+            QFont font("Microsoft YaHei", 20, 75);
+            ui->path_my->setFont(font);
+        }
+        else if(ui->comboBox_my->currentIndex()==2) {
+            my_characters.sortByCountry();
+            QString path = "排列顺序：";
+            for(auto it:countries) path+=it+" ";
+            ui->path_my->setText(path);
+            QFont font("Microsoft YaHei", 20, 75);
+            ui->path_my->setFont(font);
+        }
+        else if(ui->comboBox_my->currentIndex()==3) {
+            my_characters.sortByProfession();
+            QString path = "排列顺序：";
+            for(auto it:professions) path+=it+" ";
+            ui->path_my->setText(path);
+            QFont font("Microsoft YaHei", 20, 75);
+            ui->path_my->setFont(font);
+        }
+
+        my_characters.disply(vec_myshow);
 
         for(int i=0;i<my_characters.size();i++)
             connect(vec_myshow[i], &show_widget::changeScene,this,&MainWindow::showInLabel);
@@ -200,7 +269,7 @@ void MainWindow::showInLabel(QString s,int idx){//0拼音 1汉字
 
     //监听人物界面的返回信号
     connect(character_Scene,&Character_Show_Widget::characterSceneBack,this,[=](){
-       character_Scene->hide();
+       character_Scene->~Character_Show_Widget(); //hide();
        this->show();
     });
     one->~Character_single();

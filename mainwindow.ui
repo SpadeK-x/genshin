@@ -32,20 +32,8 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_2">
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <property name="topMargin">
-     <number>0</number>
-    </property>
-    <property name="rightMargin">
-     <number>0</number>
-    </property>
-    <property name="bottomMargin">
-     <number>0</number>
-    </property>
-    <item>
+   <layout class="QGridLayout" name="gridLayout_5">
+    <item row="0" column="0">
      <widget class="QWidget" name="widget" native="true">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
@@ -105,29 +93,45 @@
       </layout>
      </widget>
     </item>
-    <item>
+    <item row="1" column="0">
      <widget class="QStackedWidget" name="Main_Widget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page_0">
        <widget class="QLabel" name="label_2">
         <property name="geometry">
          <rect>
-          <x>120</x>
-          <y>140</y>
-          <width>501</width>
+          <x>610</x>
+          <y>60</y>
+          <width>341</width>
           <height>161</height>
          </rect>
         </property>
         <property name="font">
          <font>
           <family>Agency FB</family>
-          <pointsize>72</pointsize>
+          <pointsize>30</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="text">
-         <string>首页</string>
+         <string>欢迎来到
+原神角色图鉴~</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="disply">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>40</y>
+          <width>561</width>
+          <height>441</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </widget>
@@ -151,8 +155,8 @@ border-width:0;border-style:outset}</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>991</width>
-             <height>555</height>
+             <width>973</width>
+             <height>492</height>
             </rect>
            </property>
            <property name="autoFillBackground">
@@ -162,54 +166,101 @@ border-width:0;border-style:outset}</string>
             <string notr="true"/>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
-            <property name="leftMargin">
-             <number>0</number>
-            </property>
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="rightMargin">
-             <number>0</number>
-            </property>
-            <property name="bottomMargin">
-             <number>0</number>
-            </property>
-            <item row="0" column="3">
-             <widget class="show_widget" name="show4" native="true"/>
-            </item>
-            <item row="0" column="1">
-             <widget class="show_widget" name="show2" native="true"/>
-            </item>
-            <item row="0" column="2">
-             <widget class="show_widget" name="show3" native="true"/>
-            </item>
             <item row="0" column="0">
-             <widget class="show_widget" name="show1" native="true"/>
-            </item>
-            <item row="2" column="0">
-             <widget class="show_widget" name="show9" native="true"/>
-            </item>
-            <item row="1" column="3">
-             <widget class="show_widget" name="show8" native="true"/>
-            </item>
-            <item row="1" column="2">
-             <widget class="show_widget" name="show7" native="true"/>
-            </item>
-            <item row="1" column="1">
-             <widget class="show_widget" name="show6" native="true"/>
-            </item>
-            <item row="1" column="0">
-             <widget class="show_widget" name="show5" native="true"/>
-            </item>
-            <item row="2" column="1">
-             <widget class="show_widget" name="show10" native="true">
-              <property name="enabled">
-               <bool>true</bool>
-              </property>
+             <widget class="QWidget" name="widget_3" native="true">
+              <layout class="QGridLayout" name="gridLayout">
+               <item row="1" column="0">
+                <widget class="show_widget" name="show5" native="true"/>
+               </item>
+               <item row="0" column="0">
+                <widget class="show_widget" name="show1" native="true"/>
+               </item>
+               <item row="0" column="2">
+                <widget class="show_widget" name="show3" native="true"/>
+               </item>
+               <item row="2" column="1">
+                <widget class="show_widget" name="show10" native="true">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="show_widget" name="show7" native="true"/>
+               </item>
+               <item row="1" column="1">
+                <widget class="show_widget" name="show6" native="true"/>
+               </item>
+               <item row="0" column="1">
+                <widget class="show_widget" name="show2" native="true"/>
+               </item>
+               <item row="1" column="3">
+                <widget class="show_widget" name="show8" native="true"/>
+               </item>
+               <item row="0" column="3">
+                <widget class="show_widget" name="show4" native="true"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="show_widget" name="show9" native="true"/>
+               </item>
+              </layout>
              </widget>
             </item>
            </layout>
           </widget>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QWidget" name="widget_4" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLabel" name="path_all">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Preferred</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>30</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox">
+             <item>
+              <property name="text">
+               <string>星级</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>性别</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>国家</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>使用武器</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
        </layout>
@@ -275,7 +326,7 @@ border-width:0;border-style:outset}</string>
          <item>
           <widget class="QLabel" name="label">
            <property name="text">
-            <string>TextLabel</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -301,46 +352,111 @@ border-width:0;border-style:outset}</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>60</height>
+             <width>971</width>
+             <height>490</height>
             </rect>
            </property>
            <property name="styleSheet">
             <string notr="true">background color : rgba(255, 255, 255, 0)</string>
            </property>
-           <layout class="QGridLayout" name="gridLayout_5">
-            <item row="0" column="0">
-             <widget class="show_widget" name="my1" native="true"/>
-            </item>
-            <item row="2" column="0">
-             <widget class="show_widget" name="my9" native="true"/>
-            </item>
-            <item row="2" column="1">
-             <widget class="show_widget" name="my10" native="true"/>
-            </item>
-            <item row="1" column="0">
-             <widget class="show_widget" name="my5" native="true"/>
-            </item>
-            <item row="1" column="3">
-             <widget class="show_widget" name="my8" native="true"/>
-            </item>
-            <item row="0" column="3">
-             <widget class="show_widget" name="my4" native="true"/>
-            </item>
-            <item row="1" column="1">
-             <widget class="show_widget" name="my6" native="true"/>
-            </item>
-            <item row="1" column="2">
-             <widget class="show_widget" name="my7" native="true"/>
-            </item>
-            <item row="0" column="1">
-             <widget class="show_widget" name="my2" native="true"/>
-            </item>
-            <item row="0" column="2">
-             <widget class="show_widget" name="my3" native="true"/>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QWidget" name="widget_5" native="true">
+              <layout class="QGridLayout" name="gridLayout_7">
+               <item row="0" column="0">
+                <widget class="show_widget" name="my1" native="true"/>
+               </item>
+               <item row="0" column="1">
+                <widget class="show_widget" name="my2" native="true"/>
+               </item>
+               <item row="0" column="2">
+                <widget class="show_widget" name="my3" native="true"/>
+               </item>
+               <item row="0" column="3">
+                <widget class="show_widget" name="my4" native="true"/>
+               </item>
+               <item row="1" column="0">
+                <widget class="show_widget" name="my5" native="true"/>
+               </item>
+               <item row="1" column="1">
+                <widget class="show_widget" name="my6" native="true"/>
+               </item>
+               <item row="1" column="2">
+                <widget class="show_widget" name="my7" native="true"/>
+               </item>
+               <item row="1" column="3">
+                <widget class="show_widget" name="my8" native="true"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="show_widget" name="my9" native="true"/>
+               </item>
+               <item row="2" column="1">
+                <widget class="show_widget" name="my10" native="true"/>
+               </item>
+              </layout>
+             </widget>
             </item>
            </layout>
           </widget>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QWidget" name="widget_6" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QLabel" name="path_my">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Preferred</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_my">
+             <item>
+              <property name="text">
+               <string>星级</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>性别</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>国家</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>使用武器</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
        </layout>
@@ -364,7 +480,7 @@ border-width:0;border-style:outset}</string>
     </property>
     <addaction name="import_mine"/>
    </widget>
-   <widget class="QMenu" name="menu_2">
+   <widget class="QMenu" name="actionabout">
     <property name="title">
      <string>关于</string>
     </property>
@@ -378,7 +494,7 @@ border-width:0;border-style:outset}</string>
    </widget>
    <addaction name="menu"/>
    <addaction name="menu_3"/>
-   <addaction name="menu_2"/>
+   <addaction name="actionabout"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="import_all">

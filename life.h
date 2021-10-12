@@ -80,7 +80,14 @@ public:
         set_profession(rhs->get_profession());
     }
 
-
+    Character_single* operator= (Character_single*& rhs){
+        set_name(rhs->get_name());
+        set_name_pinyin(rhs->get_name_pinyin());
+        set_star(rhs->get_star());
+        set_sex(rhs->get_sex());
+        set_country(rhs->get_country());
+        set_profession(rhs->get_profession());
+    }
     //~character();
 };
 
