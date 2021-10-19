@@ -3,7 +3,7 @@
 #include <string>
 #include <sstream>
 #include <QVector>
-#include "life.h"
+#include "Life.h"
 
 using std::string;
 

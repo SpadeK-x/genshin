@@ -2,7 +2,7 @@
 #define CHARACTER_SHOW_WIDGET_H
 
 #include <QMainWindow>
-#include <life.h>
+#include <Life.h>
 
 class Character_Show_Widget : public QMainWindow
 {

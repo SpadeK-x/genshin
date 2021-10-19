@@ -10,9 +10,9 @@
 #include <QMessageBox>
 #include <sstream>
 #include <QMovie>
-#include "shixian.h"
+#include "Characters.h"
 #include "Tools.h"
-#include "life.h"
+#include "Life.h"
 
 using std::string;
 

@@ -1,7 +1,7 @@
 #include "show_widget.h"
 #include "ui_show_widget.h"
 #include "mainwindow.h"
-#include "life.h"
+#include "Life.h"
 //#include "Tools.h"
 //#include <QVector>
 

@@ -22,9 +22,10 @@ SOURCES += \
     show_widget.cpp
 
 HEADERS += \
+    Character_single.h \
+    Characters.h \
+    Life.h \
     Tools.h \
-    life.h \
-    shixian.h \
     character_show_widget.h \
     mainwindow.h \
     show_widget.h

@@ -1,7 +1,7 @@
 #include "character_show_widget.h"
 #include <QPushButton>
 #include <QLabel>
-#include "life.h"
+#include "Life.h"
 
 using std::string;
 
